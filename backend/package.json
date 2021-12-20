@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev src/routes.ts"
+    "dev": "ts-node-dev src/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
   },
   "license": "MIT",
   "devDependencies": {
