@@ -12,7 +12,7 @@ interface ITokenPayload {
   sub: string;
 }
 
-export default function userAuthenticated(
+export function userAuthenticated(
   req: Request,
   res: Response,
   next: NextFunction,
