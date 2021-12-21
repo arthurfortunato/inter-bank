@@ -5,12 +5,52 @@ import {
     InlineContainer
 } from './styles';
 
+import { useEffect, useState } from 'react';
+
 import { Button } from '../../components/Button';
 import { Card } from '../../components/Card';
 import { Header } from '../../components/Header';
 import { Input } from '../../components/Input';
+import { Statement } from './Statement';
+
+import { useAuth } from '../../hooks/useAuth';
+import { pay, request } from '../../services/resources/pix';
 
 export const Dashboard = () => {
+    const { user, getCurrentUser } = useAuth();
+    const wallet = user?.wallet || 0;
+    const [key, setKey] = useState('');
+    const [generatedKey, setGeneratedKey] = useState('');
+    const [newVale, setNewVale] = useState('');
+
+    const handleNewPayment = async () => {
+        const { data } = await request(Number(newVale))
+
+        if (data.copyPasteKey) {
+            setGeneratedKey(data.copyPasteKey)
+        }
+    }
+
+    const handleReceivedPix = async () => {
+        try {
+            const { data } = await pay(key)
+
+            if (data.msg) {
+                alert(data.msg);
+                return;
+            }
+        } catch (error) {
+            alert("Nao foi possivel receber o pix do mesmo usuario")
+        }
+    }
+
+    useEffect(() => {
+        getCurrentUser();
+    }, [])
+
+    if (!user) {
+        return null;
+    }
 
     return (
         <Container>
@@ -24,7 +64,7 @@ export const Dashboard = () => {
                         </InlineTitle>
                         <InlineContainer>
                             <h3 className='wallet'>
-                              R$ 666
+                                {wallet.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" })}
                             </h3>
                         </InlineContainer>
                     </Card>
@@ -36,17 +76,18 @@ export const Dashboard = () => {
                         <InlineContainer>
                             <Input
                                 style={{ flex: 1 }}
-
+                                value={newVale}
+                                onChange={e => setNewVale(e.target.value)}
                                 placeholder='Valor'
                             />
-                            <Button>Gerar Codigo</Button>
+                            <Button onClick={handleNewPayment}>Gerar Codigo</Button>
                         </InlineContainer>
 
-                        {<>
+                        {generatedKey && (<>
                             <p className='primary-color'>Pix copia e cola</p>
-                            <p className='primary-color'>515614564641sdfdsfdsfdsfsdf</p>
+                            <p className='primary-color'>{generatedKey}</p>
                         </>
-                        }
+                        )}
                     </Card>
 
                     <Card noShadow width='90%'>
@@ -56,9 +97,11 @@ export const Dashboard = () => {
                         <InlineContainer>
                             <Input
                                 style={{ flex: 1 }}
+                                value={key}
+                                onChange={e => setKey(e.target.value)}
                                 placeholder='Insira a chave'
                             />
-                            <Button>Pagar PIX</Button>
+                            <Button onClick={handleReceivedPix}>Pagar PIX</Button>
                         </InlineContainer>
                     </Card>
 
@@ -68,6 +111,7 @@ export const Dashboard = () => {
                         <InlineTitle>
                             <h2 className='h2'>Extrato da Conta</h2>
                         </InlineTitle>
+                        <Statement />
                     </Card>
                 </div>
             </BodyContainer>
