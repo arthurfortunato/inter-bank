@@ -49,7 +49,6 @@ const AuthProvider: React.FC = ({ children }) => {
         const { data } = await signUp(userData);
         localStorage.setItem('@InterDev:Token', data.accessToken);
         return getCurrentUser();
-
     }
 
     //salvar usuário
