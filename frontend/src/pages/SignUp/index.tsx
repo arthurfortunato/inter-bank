@@ -14,6 +14,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 
+import toast, { Toaster } from 'react-hot-toast';
+
 export const SignUp = () => {
 
   const [firstName, setFirstName] = useState('');
@@ -26,21 +28,24 @@ export const SignUp = () => {
   const navigate = useNavigate();
 
   const handleToSignUp = async () => {
-    const data = {
-      firstName,
-      lastName,
-      email,
-      password
-    }
-    
-    const response = await UserSignUp(data);
-    
-    if(response.id) {
-      navigate('/dashboard');
-      return
-    }
+    try {
+      const data = {
+        firstName,
+        lastName,
+        email,
+        password
+      }
 
-  } 
+      const response = await UserSignUp(data);
+
+      if (response.id) {
+        navigate('/dashboard');
+        return
+      }
+    } catch (error) {
+      toast.error('E-mail já cadastrado!')
+    }
+  }
 
   return (
     <Container>
@@ -60,6 +65,10 @@ export const SignUp = () => {
           <p>Já tem uma conta?? <Link to="/">Entre já</Link></p>
         </ButtonContainer>
       </Card >
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+      />
     </Container>
   );
 }

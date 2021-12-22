@@ -14,6 +14,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useState } from 'react';
 
+import toast, { Toaster } from 'react-hot-toast';
+
 export const SignIn = () => {
   const navigate = useNavigate();
   const { UserSignIn } = useAuth();
@@ -21,17 +23,20 @@ export const SignIn = () => {
   const [password, setPassword] = useState('');
 
   const handleToSignIn = async () => {
-    const data = {
-      email,
-      password
+    try {
+      const data = {
+        email,
+        password
+      }
+      const response = await UserSignIn(data);
+  
+      if (response.id) {
+        navigate('/dashboard');
+        return;
+      } 
+    } catch (error) {
+      toast.error("Usuário ou Senha inválidos")
     }
-    const response = await UserSignIn(data);
-
-    if (response.id) {
-      navigate('/dashboard');
-      return;
-    }
-    alert('Usuario/Senha inválidos')
   }
 
   return (
@@ -57,6 +62,11 @@ export const SignIn = () => {
           <Button type='button' onClick={handleToSignIn} >Entrar</Button>
           <p>Ainda não é cadastrado? <Link to="/signup">Cadastra-se já</Link></p>
         </ButtonContainer>
+
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
       </Card >
     </Container>
   );
