@@ -29,7 +29,7 @@ export const BodyContainer = styled.main`
 export const InlineTitle = styled.div`
     display: flex;
     width: 100%;
-`;
+    `;
 
 export const InlineContainer = styled.div`
     display: flex;

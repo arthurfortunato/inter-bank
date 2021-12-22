@@ -117,7 +117,7 @@ export const Dashboard = () => {
 
                 </div>
                 <div>
-                    <Card noShadow width='90%'>
+                    <Card noShadow width='90%' height='600px'>
                         <InlineTitle>
                             <h2 className='h2'>Extrato da Conta</h2>
                         </InlineTitle>
