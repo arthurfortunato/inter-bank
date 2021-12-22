@@ -1,6 +1,7 @@
 import { ButtonPix } from './styles';
 
 import { GrCopy } from 'react-icons/gr';
+import toast, { Toaster } from 'react-hot-toast';
 
 interface IPixCode {
   code: string;
@@ -10,6 +11,7 @@ interface IPixCode {
 export function PixCode(props: IPixCode) {
   function copyPixCode() {
     navigator.clipboard.writeText(props.code);
+    toast.success('Código Copiado!')
   }
 
   return (
@@ -23,6 +25,10 @@ export function PixCode(props: IPixCode) {
           </div>
         )}
       </ButtonPix>
+        <Toaster
+          position="top-center"
+          reverseOrder={false}
+        />
     </div>
   )
 }

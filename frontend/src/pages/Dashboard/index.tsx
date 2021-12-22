@@ -17,6 +17,8 @@ import { PixCode } from '../../components/PixCode';
 import { useAuth } from '../../hooks/useAuth';
 import { pay, request } from '../../services/resources/pix';
 
+import toast, { Toaster } from 'react-hot-toast';
+
 export const Dashboard = () => {
     const { user, getCurrentUser } = useAuth();
     const wallet = user?.wallet || 0;
@@ -36,18 +38,26 @@ export const Dashboard = () => {
         try {
             const { data } = await pay(key)
 
+            if (data) {
+                toast.success('Pix pago')
+
+                setTimeout(() => {
+                    window.location.reload()
+                },1000)
+            }
+            
             if (data.msg) {
-                alert(data.msg);
+                toast(data.msg);
                 return;
             }
         } catch (error) {
-            alert("Nao foi possivel receber o pix do mesmo usuario")
+            toast.error("Não é possivel receber PIX do mesmo usuário!")
         }
     }
 
     useEffect(() => {
         getCurrentUser();
-    }, [])
+    }, [getCurrentUser])
 
     if (!user) {
         return null;
@@ -83,7 +93,7 @@ export const Dashboard = () => {
                             />
                             <Button onClick={handleNewPayment}>Gerar Codigo</Button>
                         </InlineContainer>
-                        <PixCode code={generatedKey}/>
+                        <PixCode code={generatedKey} />
                     </Card>
 
                     <Card noShadow width='90%'>
@@ -99,6 +109,10 @@ export const Dashboard = () => {
                             />
                             <Button onClick={handleReceivedPix}>Pagar PIX</Button>
                         </InlineContainer>
+                        <Toaster
+                            position="top-center"
+                            reverseOrder={false}
+                        />
                     </Card>
 
                 </div>
