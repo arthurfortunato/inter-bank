@@ -19,4 +19,11 @@ export const Container = styled.div`
        width: 100%;
        margin:0 20px;
     }
+
+    input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        input:-webkit-autofill:active  {
+        -webkit-box-shadow: 0 0 0 30px white inset;
+    }
 `;

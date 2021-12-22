@@ -12,6 +12,7 @@ import { Card } from '../../components/Card';
 import { Header } from '../../components/Header';
 import { Input } from '../../components/Input';
 import { Statement } from './Statement';
+import { PixCode } from '../../components/PixCode';
 
 import { useAuth } from '../../hooks/useAuth';
 import { pay, request } from '../../services/resources/pix';
@@ -82,12 +83,7 @@ export const Dashboard = () => {
                             />
                             <Button onClick={handleNewPayment}>Gerar Codigo</Button>
                         </InlineContainer>
-
-                        {generatedKey && (<>
-                            <p className='primary-color'>Pix copia e cola</p>
-                            <p className='primary-color'>{generatedKey}</p>
-                        </>
-                        )}
+                        <PixCode code={generatedKey}/>
                     </Card>
 
                     <Card noShadow width='90%'>
