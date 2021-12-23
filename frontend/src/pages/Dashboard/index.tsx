@@ -24,10 +24,10 @@ export const Dashboard = () => {
     const wallet = user?.wallet || 0;
     const [key, setKey] = useState('');
     const [generatedKey, setGeneratedKey] = useState('');
-    const [newVale, setNewVale] = useState('');
+    const [newValue, setNewValue] = useState('');
 
     const handleNewPayment = async () => {
-        const { data } = await request(Number(newVale))
+        const { data } = await request(Number(newValue))
 
         if (data.copyPasteKey) {
             setGeneratedKey(data.copyPasteKey)
@@ -86,10 +86,12 @@ export const Dashboard = () => {
                         </InlineTitle>
                         <InlineContainer>
                             <Input
+                                type='number'
+                                step='0.01'
                                 style={{ flex: 1 }}
-                                value={newVale}
-                                onChange={e => setNewVale(e.target.value)}
-                                placeholder='Valor'
+                                value={newValue}
+                                onChange={e => setNewValue(e.target.value)}
+                                placeholder='0,00'
                             />
                             <Button onClick={handleNewPayment}>Gerar Codigo</Button>
                         </InlineContainer>

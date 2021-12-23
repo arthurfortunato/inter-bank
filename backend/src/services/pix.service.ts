@@ -14,7 +14,7 @@ export class PixService {
 
     const requestData = {
       requestingUser: currentUser,
-      value,
+      value: value,
       status: 'open',
     }
 
@@ -68,7 +68,7 @@ export class PixService {
 
     await pixRepository.save(pixTransaction)
 
-    return { mag: 'Pagamento efetuado com sucesso' }
+    return { msg: 'Pagamento efetuado com sucesso' }
   }
 
   async transactions(user: Partial<User>) {

@@ -9,6 +9,16 @@ export const Container = styled.main`
     justify-content: center;
 `;
 
+export const CardContainer = styled.div`
+    width: 403px;
+    @media (max-width: 500px) {
+        width: 370px;
+    }
+    @media (max-width: 410px) {
+        width: 340px;
+    }
+`; 
+
 export const BackgroundImage = styled.div<{ image: any }>`
     position:absolute;
     width: 100%;
@@ -16,7 +26,7 @@ export const BackgroundImage = styled.div<{ image: any }>`
     left: 0;
     height: 50vh;
     background-image: url(${({ image }) => image});
-    background-size: contain;
+    background-size: cover;
     z-index: -1;
 `;
 

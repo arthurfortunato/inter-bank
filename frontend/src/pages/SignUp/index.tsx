@@ -1,5 +1,6 @@
 import {
   Container,
+  CardContainer,
   ButtonContainer,
   InputContainer,
   BackgroundImage,
@@ -50,21 +51,23 @@ export const SignUp = () => {
   return (
     <Container>
       <BackgroundImage image={backgroundImg} />
-      <Card width='403px' >
-        <img src={logoSvg} alt="Logo-Banco-Inter" width={172} height={61} />
-        <InputContainer>
-          <Input placeholder='NOME' value={firstName} onChange={(event) => setFirstName(event.target.value)} />
-          <Input placeholder='SOBRENOME' value={lastName} onChange={(event) => setLastName(event.target.value)} />
-          <Input placeholder='EMAIL' value={email} onChange={(event) => setEmail(event.target.value)} />
-          <Input placeholder='SENHA' type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
-          <Input placeholder='CONFIRMAR SENHA' type="password" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} />
-        </InputContainer>
+      <CardContainer>
+        <Card width='100%' >
+          <img src={logoSvg} alt="Logo-Banco-Inter" width={172} height={61} />
+          <InputContainer>
+            <Input placeholder='NOME' value={firstName} onChange={(event) => setFirstName(event.target.value)} />
+            <Input placeholder='SOBRENOME' value={lastName} onChange={(event) => setLastName(event.target.value)} />
+            <Input placeholder='EMAIL' value={email} onChange={(event) => setEmail(event.target.value)} />
+            <Input placeholder='SENHA' type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
+            <Input placeholder='CONFIRMAR SENHA' type="password" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} />
+          </InputContainer>
 
-        <ButtonContainer>
-          <Button type='button' onClick={handleToSignUp} >Entrar</Button>
-          <p>Já tem uma conta?? <Link to="/">Entre já</Link></p>
-        </ButtonContainer>
-      </Card >
+          <ButtonContainer>
+            <Button type='button' onClick={handleToSignUp} >Entrar</Button>
+            <p>Já tem uma conta?? <Link to="/">Entre já</Link></p>
+          </ButtonContainer>
+        </Card >
+      </CardContainer>
       <Toaster
         position="top-center"
         reverseOrder={false}
