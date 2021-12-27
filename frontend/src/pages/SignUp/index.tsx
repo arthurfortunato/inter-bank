@@ -23,7 +23,6 @@ export const SignUp = () => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState(password);
 
   const { UserSignUp } = useAuth();
   const navigate = useNavigate();
@@ -43,6 +42,7 @@ export const SignUp = () => {
         navigate('/dashboard');
         return
       }
+
     } catch (error) {
       toast.error('E-mail já cadastrado!')
     }
@@ -59,7 +59,6 @@ export const SignUp = () => {
             <Input placeholder='SOBRENOME' value={lastName} onChange={(event) => setLastName(event.target.value)} />
             <Input placeholder='EMAIL' value={email} onChange={(event) => setEmail(event.target.value)} />
             <Input placeholder='SENHA' type="password" value={password} onChange={(event) => setPassword(event.target.value)} />
-            <Input placeholder='CONFIRMAR SENHA' type="password" value={confirmPassword} onChange={(event) => setConfirmPassword(event.target.value)} />
           </InputContainer>
 
           <ButtonContainer>

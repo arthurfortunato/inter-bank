@@ -37,10 +37,13 @@ export const UserInfo = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    a {
+    button {
         color: ${({ theme }) => theme.colors.primary};
+        background: ${({ theme }) => theme.colors.background};
         font-weight: 600;
+        border: 0;
         cursor: pointer;
+        font-size: 15px;
     }
     span {
         color: ${({ theme }) => theme.colors.primary};

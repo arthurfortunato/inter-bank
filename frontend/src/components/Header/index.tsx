@@ -24,10 +24,10 @@ export const Header = () => {
         <img src={logoImg} alt="logo-banco-inter"/>
         <UserInfo>
           <UserCircle initials={initial} />
-          <div className="">
+          <div>
             <p>Olá, <span className='primary-color font-bold'>{user.firstName} {user.lastName}</span></p>
             <strong>{user.accountNumber}-{user.accountDigit}</strong><br />
-            <a onClick={handleLogout}>Sair</a>
+            <button onClick={handleLogout}>Sair</button>
           </div>
         </UserInfo>
       </HeaderContainer>
