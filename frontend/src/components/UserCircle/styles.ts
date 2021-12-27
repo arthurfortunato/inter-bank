@@ -12,4 +12,8 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.colors.primary};
     font-weight: 300;
     font-size: 2rem;
+
+    @media (max-width:610px) {
+        display: none;
+    }
 `;

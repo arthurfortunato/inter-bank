@@ -24,12 +24,26 @@ export const BodyContainer = styled.main`
             justify-content: flex-end;
         }
     }
+
+    @media(max-width: 800px) {
+        transition: all 1.7s;
+        width: 100%;
+        margin-left: 50px;
+        flex-direction: column;
+        
+
+        > div {
+        &:nth-child(2){
+            display: flex;
+            justify-content: flex-start;
+        }
+    }
 `;
 
 export const InlineTitle = styled.div`
     display: flex;
     width: 100%;
-    `;
+`;
 
 export const InlineContainer = styled.div`
     display: flex;

@@ -21,7 +21,7 @@ export const Header = () => {
   return (
     <Container>
       <HeaderContainer>
-        <img src={logoImg} alt="logo-banco-inter" width={172} height={61} />
+        <img src={logoImg} alt="logo-banco-inter"/>
         <UserInfo>
           <UserCircle initials={initial} />
           <div className="">

@@ -12,6 +12,7 @@ export const Container = styled.main`
 export const CardContainer = styled.div`
     width: 403px;
     @media (max-width: 500px) {
+        transition: all 1.7s;
         width: 370px;
     }
     @media (max-width: 410px) {
