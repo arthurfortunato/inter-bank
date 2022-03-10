@@ -46,11 +46,11 @@ export const ButtonContainer = styled.div`
     p{
         font-size: 0.75rem;
         font-weight: 400;
-        color:${({ theme }) => theme.colors.secondary};
+        color:${({ theme }) => theme.colors.dark_gray};
         a {
             font-size: 1.1rem;
             font-weight: 700;
-            color:${({ theme }) => theme.colors.primary};
+            color:${({ theme }) => theme.colors.orange};
         }
     }
 `;

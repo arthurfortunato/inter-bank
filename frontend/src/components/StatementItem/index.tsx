@@ -24,7 +24,7 @@ export const StatementItem = ({ user, value, type, updated_at }: IStatementItem)
         <FiDollarSign size={24} />
       </StatementItemImage>
       <StatementItemInfo>
-        <p className='primary-color'>{value.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" })}</p>
+        <p className='orange-color'>{value.toLocaleString('pt-BR', { style: 'currency', currency: "BRL" })}</p>
         <p> {type === 'paid' ? 'Pago a ' : "Recebido de "}
           <strong>{user.firstName} {user.lastName}</strong>
         </p>

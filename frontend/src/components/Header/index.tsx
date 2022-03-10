@@ -25,7 +25,7 @@ export const Header = () => {
         <UserInfo>
           <UserCircle initials={initial} />
           <div>
-            <p>Olá, <span className='primary-color font-bold'>{user.firstName} {user.lastName}</span></p>
+            <p>Olá, <span className='orange-color font-bold'>{user.firstName} {user.lastName}</span></p>
             <strong>{user.accountNumber}-{user.accountDigit}</strong><br />
             <button onClick={handleLogout}>Sair</button>
           </div>

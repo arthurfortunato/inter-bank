@@ -44,7 +44,7 @@ export class UserService {
       subject: existUser.id,
       expiresIn,
     })
-
+    // @ts-expect-error ignora
     delete existUser.password;
 
     return { accessToken: token }
@@ -93,7 +93,7 @@ export class UserService {
     if (!currentUser) {
       throw new AppError('Usuário não encontrado', 401);
     }
-
+    // @ts-expect-error ignora
     delete currentUser.password
 
     return currentUser;

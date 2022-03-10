@@ -7,7 +7,6 @@ interface IPixCode {
   code: string;
 }
 
-
 export function PixCode(props: IPixCode) {
   function copyPixCode() {
     navigator.clipboard.writeText(props.code);
@@ -19,7 +18,7 @@ export function PixCode(props: IPixCode) {
       <ButtonPix onClick={copyPixCode}>
         {props.code && (
           <div>
-            <p className='primary-color'>Pix Code</p>
+            <p className='orange-color'>Pix Code</p>
             <p>{props.code}</p>
             <GrCopy style={{ fontSize: '30px' }} />
           </div>

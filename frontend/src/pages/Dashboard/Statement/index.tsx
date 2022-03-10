@@ -2,6 +2,7 @@ import { ContainerStatement } from './styles';
 import { StatementItem } from '../../../components/StatementItem';
 import { useEffect, useState } from 'react';
 import { transactions } from '../../../services/resources/pix';
+
 interface IStatementItem {
   user: {
     firstName: string;

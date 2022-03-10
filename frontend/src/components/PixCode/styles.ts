@@ -24,4 +24,10 @@ export const ButtonPix = styled.button`
       align-items: center;
       padding: 10px;
     }
+
+    @media(max-width: 1430px) {
+      p {
+        font-size: 0.5rem;
+      }
+    }
 `

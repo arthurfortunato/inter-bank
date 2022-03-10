@@ -19,7 +19,7 @@ export const StatementItemImage = styled.div<{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.background_white};
     border-radius: 10px;
     margin-bottom: 20px;
 background:${({ theme, type }) => type === 'paid' ? theme.colors.red : theme.colors.green};

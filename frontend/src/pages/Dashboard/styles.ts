@@ -6,7 +6,7 @@ export const Container = styled.main`
     display: flex;
     align-items: center;
     flex-direction: column;
-    background:${({ theme }) => theme.colors.backgroundLight};
+    background:${({ theme }) => theme.colors.background_gray};
 `;
 
 export const BodyContainer = styled.main`

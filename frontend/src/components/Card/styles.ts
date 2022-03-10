@@ -9,7 +9,7 @@ interface IContainer {
 export const Container = styled.div<IContainer>`
     width: ${({ width }) => width};
     height: ${({ height }) => height};
-    background: ${({ theme }) => theme.colors.background};
+    background: ${({ theme }) => theme.colors.background_white};
     //caso false 
     ${({ noShadow }) => !noShadow && css`
         box-shadow: 5px 4px 6px rgba(0,0,0,0.25);

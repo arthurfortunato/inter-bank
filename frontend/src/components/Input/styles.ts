@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Container = styled.div`
     width: 100%;
     height: 2.875rem;
-    background:${({ theme }) => theme.colors.background} ;
-    border: 1px solid ${({ theme }) => theme.colors.primary};
+    background:${({ theme }) => theme.colors.background_white} ;
+    border: 1px solid ${({ theme }) => theme.colors.orange};
     border-radius: 10px;
     margin-bottom: 20px;
     display: flex;

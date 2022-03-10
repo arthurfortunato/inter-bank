@@ -3,11 +3,10 @@ import { colors } from "../colors";
 // eslint-disable-next-line
 export default {
     colors: {
-        primary: colors.PRIMARY,
-        secondary: colors.SECONDARY,
-        tertiary: colors.TERTIARY,
-        background: colors.BACKGROUND,
-        backgroundLight: colors.BACKGROUND2,
+        orange: colors.ORANGE,
+        dark_gray: colors.DARK_GRAY,
+        background_white: colors.BACKGROUND_WHITE,
+        background_gray: colors.BACKGROUND_GRAY,
         red: colors.RED,
         green: colors.GREEN
     }

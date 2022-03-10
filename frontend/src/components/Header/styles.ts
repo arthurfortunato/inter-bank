@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.head`
     width: 100%;
     height: 90px;
-    background:${({ theme }) => theme.colors.background};
+    background:${({ theme }) => theme.colors.background_white};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,15 +38,15 @@ export const UserInfo = styled.div`
     justify-content: center;
     align-items: center;
     button {
-        color: ${({ theme }) => theme.colors.primary};
-        background: ${({ theme }) => theme.colors.background};
+        color: ${({ theme }) => theme.colors.orange};
+        background: ${({ theme }) => theme.colors.background_white};
         font-weight: 600;
         border: 0;
         cursor: pointer;
         font-size: 15px;
     }
     span {
-        color: ${({ theme }) => theme.colors.primary};
+        color: ${({ theme }) => theme.colors.orange};
         font-weight: 600;
     }
 `;

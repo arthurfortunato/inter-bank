@@ -10,22 +10,19 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Roboto', sans-serif;
 }
 body{
-    background:${({ theme }) => theme.colors.background} ;
-    -webkit-font-smoothing: antialiased;//detalhes de font webkit
+    background:${({ theme }) => theme.colors.background_white} ;
+    -webkit-font-smoothing: antialiased;
 }
 body, input, textarea, button { 
         font-family: 'Roboto', sans-serif;
     }
 html {
-        //padrao 16px
         @media (max-width: 1080px){
-            //16*0.975 = 15px
-            font-size: 93.75%; //15px
+            font-size: 93.75%; 
         }
         @media (max-width: 720px){
-            font-size: 87.5%; //14px
+            font-size: 87.5%;
         }
-        //rem = 1 rem = font-size = page
     }
     
 h1,h2,h3,h4,h5,h6,strong {
@@ -43,15 +40,15 @@ a {
 }
 .wallet{
     font-size: 2.5rem;
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.orange};
     font-weight: 700;
 }
 .h2{
     font-weight: 600;
 }
-.primary-color{
+.orange-color{
     font-size: 1.1rem;
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.orange};
     font-weight: 600;
     padding-top: 5px;
     line-height: 1.25;

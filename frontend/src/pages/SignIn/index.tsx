@@ -20,8 +20,9 @@ import toast, { Toaster } from 'react-hot-toast';
 export const SignIn = () => {
   const navigate = useNavigate();
   const { UserSignIn } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleToSignIn = async () => {
     try {
@@ -62,7 +63,7 @@ export const SignIn = () => {
 
           <ButtonContainer>
             <Button type='button' onClick={handleToSignIn} >Entrar</Button>
-            <p>Ainda não é cadastrado? <Link to="/signup">Cadastra-se já</Link></p>
+            <p>Ainda não é cadastrado? <Link to="/signup">Abra a sua conta</Link></p>
           </ButtonContainer>
 
           <Toaster
