@@ -18,7 +18,7 @@ export class UserController {
 
         const users = await userService.signup(user);
 
-        return response.status(200).json(users);
+        return response.status(201).json(users);
     }
 
     async getUser(request: Request, response: Response) {

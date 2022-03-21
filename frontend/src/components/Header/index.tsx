@@ -10,12 +10,14 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 
 export const Header = () => {
-  const navigation = useNavigate();
-  const { user } = useAuth();
+  const navigate = useNavigate();
+  const { user, Logout } = useAuth();
 
-  const initial = user.firstName.substring(0, 1) + user.lastName.substring(0, 1)
+  const initial = user ? user.firstName.substring(0, 1) + user.lastName.substring(0, 1) : '';
+  
   const handleLogout = () => {
-    navigation('/')
+    Logout()
+    navigate('/')
   }
 
   return (
@@ -25,8 +27,8 @@ export const Header = () => {
         <UserInfo>
           <UserCircle initials={initial} />
           <div>
-            <p>Olá, <span className='orange-color font-bold'>{user.firstName} {user.lastName}</span></p>
-            <strong>{user.accountNumber}-{user.accountDigit}</strong><br />
+            <p>Olá, <span className='orange-color font-bold'>{user?.firstName} {user?.lastName}</span></p>
+            <strong>{user?.accountNumber}-{user?.accountDigit}</strong><br />
             <button onClick={handleLogout}>Sair</button>
           </div>
         </UserInfo>
